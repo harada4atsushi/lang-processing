@@ -21,3 +21,4 @@ def filtered_sentiment():
     return lines
 
 lines = filtered_sentiment()
+print lines
