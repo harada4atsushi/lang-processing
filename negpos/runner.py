@@ -39,7 +39,24 @@ wakatis = []
 for line in parse():
   wakatis.append(wakati(line[0]))
 
+# テキスト内の単語の出現頻度を数えて、結果をベクトル化する
 count_vectorizer = CountVectorizer()
-feature_vectors = count_vectorizer.fit_transform(wakatis)
+feature_vectors = count_vectorizer.fit_transform(wakatis)  # csr_matrix(疎行列)が返る
+
+# print feature_vectors
+  # (0, 24)       1
+  # (0, 42)       1
+  # (1, 58)       1
+  # (1, 2)        1
+  # (1, 38)       1
+  # (1, 35)       2
+  # (1, 54)       1
+  # (1, 47)       1
+  # (1, 22)       1
+  # (1, 50)       1
+  # (1, 44)       1
+  # (1, 14)       2
+  # ...
+
 vocabulary = count_vectorizer.get_feature_names()
 print vocabulary
